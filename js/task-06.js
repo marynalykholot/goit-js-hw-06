@@ -9,20 +9,18 @@
 // Для додавання стилів використовуй CSS-класи valid і invalid,
 //  які ми вже додали у вихідні файли завдання.
 
-const textInput= document.querySelector('#validation-input');
+const textInput = document.querySelector("#validation-input");
 // const dataInput= document.querySelector('[data-length]');
-textInput.addEventListener("blur",validationInput );
+textInput.addEventListener("blur", validationInput);
 
-
-function validationInput(evt){
-   if (evt.currentTarget.value.length !== Number(textInput.dataset.length)) {
-     
-     textInput.classList.add("invalid");
-      textInput.classList.remove("valid");
-
-   } else if(evt.currentTarget.value.length === Number(textInput.dataset.length)){
+function validationInput(evt) {
+  if (evt.currentTarget.value.length !== Number(textInput.dataset.length)) {
+    textInput.classList.add("invalid");
+    textInput.classList.remove("valid");
+  } else if (
+    evt.currentTarget.value.length === Number(textInput.dataset.length)
+  ) {
     textInput.classList.add("valid");
     textInput.classList.remove("invalid");
-   }
-    
+  }
 }

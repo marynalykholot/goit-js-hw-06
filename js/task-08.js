@@ -10,26 +10,23 @@
 // Виведи об'єкт із введеними даними в консоль
 //  і очисти значення полів форми методом reset.
 
+const formEl = document.querySelector(".login-form");
+formEl.addEventListener("submit", onFrm);
 
-const formEl = document.querySelector('.login-form');
-formEl.addEventListener('submit',onFrm);
+function onFrm(evt) {
+  evt.preventDefault();
 
+  const { email, password } = evt.currentTarget.elements;
 
-function onFrm(evt){
-evt.preventDefault();
+  const dataObj = {
+    email: email.value,
+    password: password.value,
+  };
 
-const {email, password} = evt.currentTarget.elements;
-
-const dataObj ={
-    email:email.value,
-     password:password.value,
-};
-
-if(dataObj.email ===''||dataObj.password===''){
-const message='Заповніть всі поля';
-alert(message);
-}
-console.dir(dataObj);
-formEl.reset();
-
+  if (dataObj.email === "" || dataObj.password === "") {
+    const message = "Заповніть всі поля";
+    alert(message);
+  }
+  console.dir(dataObj);
+  formEl.reset();
 }
